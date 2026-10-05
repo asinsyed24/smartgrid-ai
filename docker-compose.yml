@@ -1,0 +1,7 @@
+services:
+  smartgrid-api:
+    build: .
+    container_name: smartgrid-api
+    ports:
+      - "8001:8001"
+    restart: unless-stopped

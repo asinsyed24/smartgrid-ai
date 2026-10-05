@@ -24,6 +24,7 @@ data/reference/*
 # MLflow
 mlruns/
 mlartifacts/
+mlflow.db
 
 # DVC cache
 .dvc/cache/
@@ -37,3 +38,6 @@ mlartifacts/
 # Raw datasets
 data/raw/*
 !data/raw/*.dvc
+
+# Generated monitoring report
+monitoring/drift_report.html
