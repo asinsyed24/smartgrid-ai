@@ -18,7 +18,6 @@ models/*.pkl
 models/*.joblib
 
 # Data
-data/raw/*
 data/processed/*
 data/reference/*
 
@@ -34,3 +33,7 @@ mlartifacts/
 
 # Logs
 *.log
+
+# Raw datasets
+data/raw/*
+!data/raw/*.dvc
