@@ -1,0 +1,36 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Virtual environment
+.venv/
+venv/
+
+# PyCharm
+.idea/
+
+# macOS
+.DS_Store
+
+# ML artifacts
+models/*.pkl
+models/*.joblib
+
+# Data
+data/raw/*
+data/processed/*
+data/reference/*
+
+# MLflow
+mlruns/
+mlartifacts/
+
+# DVC cache
+.dvc/cache/
+
+# Environment variables
+.env
+
+# Logs
+*.log
