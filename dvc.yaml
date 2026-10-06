@@ -1,0 +1,17 @@
+stages:
+
+  preprocess:
+    cmd: python src/preprocessing.py
+    deps:
+      - src/preprocessing.py
+      - data/raw/household_power_consumption.txt
+    outs:
+      - data/processed/energy_processed.csv
+
+  train:
+    cmd: python src/train.py
+    deps:
+      - src/train.py
+      - data/processed/energy_processed.csv
+    outs:
+      - models/best_energy_model.pkl

@@ -1,0 +1,34 @@
+schema: '2.0'
+stages:
+  preprocess:
+    cmd: python src/preprocessing.py
+    deps:
+    - path: data/raw/household_power_consumption.txt
+      hash: md5
+      md5: e05286cd4a257d80c3f0407b350df7dd
+      size: 132960755
+    - path: src/preprocessing.py
+      hash: md5
+      md5: 82b2c448934556fbf2b9a47b5cb45bf7
+      size: 2090
+    outs:
+    - path: data/processed/energy_processed.csv
+      hash: md5
+      md5: a95480975e210c332590d260f0f708ba
+      size: 250498438
+  train:
+    cmd: python src/train.py
+    deps:
+    - path: data/processed/energy_processed.csv
+      hash: md5
+      md5: a95480975e210c332590d260f0f708ba
+      size: 250498438
+    - path: src/train.py
+      hash: md5
+      md5: c88f5b1aaf09828ecf47836f92a02d05
+      size: 6482
+    outs:
+    - path: models/best_energy_model.pkl
+      hash: md5
+      md5: f3dd927ebb37a3447fa45301ca4117c2
+      size: 316290705
