@@ -33,7 +33,7 @@ jobs:
 
       - name: Pull versioned dataset
         run: |
-          dvc pull data/raw/household_power_consumption.zip.dvc
+          dvc pull data/raw/household_power_consumption.zip.dvc --force
 
       - name: Extract dataset
         run: |
