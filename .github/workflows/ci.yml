@@ -24,6 +24,18 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
+      - name: Configure DagsHub authentication
+        env:
+          DAGSHUB_TOKEN: ${{ secrets.DAGSHUB_TOKEN }}
+        run: |
+          dvc remote modify origin --local auth basic
+          dvc remote modify origin --local user asinsyed24
+          dvc remote modify origin --local password "$DAGSHUB_TOKEN"
+
+      - name: Pull DVC data
+        run: |
+          dvc pull
+
       - name: Verify Python files
         run: |
           python -m py_compile src/preprocessing.py
