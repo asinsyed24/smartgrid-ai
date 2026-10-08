@@ -23,7 +23,7 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      - name: Configure DagsHub authentication
+            - name: Configure DagsHub authentication
         env:
           DAGSHUB_TOKEN: ${{ secrets.DAGSHUB_TOKEN }}
         run: |
@@ -31,7 +31,7 @@ jobs:
           dvc remote modify origin --local user asinsyed24
           dvc remote modify origin --local password "$DAGSHUB_TOKEN"
 
-            - name: Pull versioned dataset
+      - name: Pull versioned dataset
         run: |
           dvc pull data/raw/household_power_consumption.zip.dvc --force
 
