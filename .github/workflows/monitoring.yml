@@ -31,9 +31,17 @@ jobs:
           dvc remote modify origin --local user asinsyed24
           dvc remote modify origin --local password "$DAGSHUB_TOKEN"
 
-      - name: Pull versioned data
+      - name: Pull versioned dataset
         run: |
-          dvc pull
+          dvc pull data/raw/household_power_consumption.zip.dvc
+
+      - name: Extract dataset
+        run: |
+          unzip -o data/raw/household_power_consumption.zip -d data/raw/
+
+      - name: Prepare processed data
+        run: |
+          python src/preprocessing.py
 
       - name: Run Evidently monitoring
         run: |
